@@ -1,0 +1,306 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "CreateIncident",
+      "features": [
+        {
+          "featureName": "list1",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "None",
+      "features": []
+    }
+  ],
+  "entities": [
+    {
+      "name": "incident",
+      "children": [],
+      "roles": [],
+      "features": [
+        {
+          "featureName": "incident",
+          "isRequired": false
+        }
+      ]
+    }
+  ],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [],
+  "prebuiltEntities": [],
+  "utterances": [
+    {
+      "text": "add a incident for me",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 6,
+          "endPos": 13,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "add a incident in service now",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 6,
+          "endPos": 13,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "add an incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 7,
+          "endPos": 14,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "bye",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can i create an incident here",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 16,
+          "endPos": 23,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "can i file an incident here itself",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 14,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "can i fire an incident from here",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 14,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "can you add an incident for me",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 15,
+          "endPos": 22,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "can you add an incident for me in service now",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 15,
+          "endPos": 22,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "can you create an incident for me?",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 18,
+          "endPos": 25,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "can you help me to create an incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 29,
+          "endPos": 36,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "create an incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 10,
+          "endPos": 17,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "create an incident in service now",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 10,
+          "endPos": 17,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "develop incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 8,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "file a incident for me",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 7,
+          "endPos": 14,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "hello",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "help me in creating an incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 23,
+          "endPos": 30,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "help me to create an incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 21,
+          "endPos": 28,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "hi",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i would like to create an incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 26,
+          "endPos": 33,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "may i create an incident",
+      "intent": "CreateIncident",
+      "entities": [
+        {
+          "entity": "incident",
+          "startPos": 16,
+          "endPos": 23,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "your query",
+      "intent": "None",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "Poojitha.a",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [
+    {
+      "name": "list",
+      "mode": true,
+      "words": "add,file,fire",
+      "activated": true,
+      "enabledForAllModels": false
+    },
+    {
+      "name": "list1",
+      "mode": true,
+      "words": "generate,make,build,set up,produce,develop,cause,set,form,write,construct,add,file,fire,establish,put,create,fix,provide,made,built,arrange,get,book,reserve,request,report,letter,document,plan,apply,state,implement,work out,setup",
+      "activated": true,
+      "enabledForAllModels": false
+    },
+    {
+      "name": "incident",
+      "mode": true,
+      "words": "event,occasion,thing,circumstance,incident,scene,matter,comprise,undertake,exploit,develop",
+      "activated": true,
+      "enabledForAllModels": false
+    }
+  ],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}
