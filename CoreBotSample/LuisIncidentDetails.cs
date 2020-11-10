@@ -9,6 +9,6 @@ namespace CoreBotSample
     {
         public string ShortDesc { get; set; }
 
-        
+        public string Desc { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace CoreBotSample.Dialogs
     {
         
         private const string ShortDescStepMsgText = "What is the issue?";
-
+        private const string DescStepMsgText = "Would you like to create incident?";
         public BookingDialog()
             : base(nameof(BookingDialog))
         {
@@ -25,11 +25,12 @@ namespace CoreBotSample.Dialogs
             AddDialog(new DateResolverDialog());
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
-               
+              
                 ShortDescStepAsync,
+                 DescStepAsync,
                 ConfirmStepAsync,
                 FinalStepAsync,
-            }));
+            })); ;
 
             // The initial child Dialog to run.
             InitialDialogId = nameof(WaterfallDialog);
@@ -52,6 +53,22 @@ namespace CoreBotSample.Dialogs
             }
 
             return await stepContext.NextAsync(luisIncidentDetails.ShortDesc, cancellationToken);
+        }
+        private async Task<DialogTurnResult> DescStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            var luisIncidentDetails = (LuisIncidentDetails)stepContext.Options;
+
+            //luisIncidentDetails.ShortDesc = (string)stepContext.Result;
+
+            if (luisIncidentDetails.Desc == null)
+            {
+                var promptMessage = MessageFactory.Text(DescStepMsgText, DescStepMsgText, InputHints.ExpectingInput);
+                return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
+
+                //return await stepContext.BeginDialogAsync(nameof(DateResolverDialog), luisIncidentDetails.ShortDesc, cancellationToken);
+            }
+
+            return await stepContext.NextAsync(luisIncidentDetails.Desc, cancellationToken);
         }
 
         private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)

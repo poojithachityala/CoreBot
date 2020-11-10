@@ -15,7 +15,7 @@ namespace CoreBotSample.Dialogs
 {
     public class DateResolverDialog : CancelAndHelpDialog
     {
-        private const string PromptMsgText = " What is the issue you are facing";
+        private const string PromptMsgText = " Would you like to create incident";
         private const string RepromptMsgText = "Enter short description";
 
         public DateResolverDialog(string id = null)
