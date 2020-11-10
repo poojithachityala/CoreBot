@@ -43,10 +43,12 @@ namespace CoreBotSample.Dialogs
 
             //luisIncidentDetails.ShortDesc = (string)stepContext.Result;
 
-            if (luisIncidentDetails.ShortDesc== null || IsAmbiguous(luisIncidentDetails.ShortDesc))
+            if (luisIncidentDetails.ShortDesc== null)
             {
                 var promptMessage = MessageFactory.Text(ShortDescStepMsgText, ShortDescStepMsgText, InputHints.ExpectingInput);
-                return await stepContext.BeginDialogAsync(nameof(DateResolverDialog), luisIncidentDetails.ShortDesc, cancellationToken);
+                return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
+
+                //return await stepContext.BeginDialogAsync(nameof(DateResolverDialog), luisIncidentDetails.ShortDesc, cancellationToken);
             }
 
             return await stepContext.NextAsync(luisIncidentDetails.ShortDesc, cancellationToken);
@@ -58,7 +60,7 @@ namespace CoreBotSample.Dialogs
 
             bookingDetails.ShortDesc = (string)stepContext.Result;
 
-            var messageText = $"Please confirm, Are you sure you want to create incident  Is this correct?";
+            var messageText = $"Please confirm, Are you sure you want to create incident ?";
             var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
 
             return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
