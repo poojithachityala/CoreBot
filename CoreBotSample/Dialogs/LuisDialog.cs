@@ -12,17 +12,17 @@ using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
 
 namespace CoreBotSample.Dialogs
 {
-    public class BookingDialog : CancelAndHelpDialog
+    public class LuisDialog : CancelAndHelpDialog
     {
         
         private const string ShortDescStepMsgText = "What is the issue?";
         private const string DescStepMsgText = "Would you like to create incident?";
-        public BookingDialog()
-            : base(nameof(BookingDialog))
+        public LuisDialog()
+            : base(nameof(LuisDialog))
         {
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt)));
-            AddDialog(new DateResolverDialog());
+            AddDialog(new ResolverDialog());
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
               

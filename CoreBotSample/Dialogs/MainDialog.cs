@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CoreBotSample;
-using CoreBotSample.CognitiveModels;
+//using CoreBotSample.CognitiveModels;
 using CoreBotSample.Dialogs;
 using Luis;
 using Microsoft.Bot.Builder;
@@ -24,7 +24,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         protected readonly ILogger Logger;
 
         // Dependency injection uses this constructor to instantiate MainDialog
-        public MainDialog(LuisBookingRecognizer luisRecognizer, BookingDialog bookingDialog, ILogger<MainDialog> logger)
+        public MainDialog(LuisBookingRecognizer luisRecognizer, LuisDialog bookingDialog, ILogger<MainDialog> logger)
             : base(nameof(MainDialog))
         {
             _luisRecognizer = luisRecognizer;
@@ -54,7 +54,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             }
 
             // Use the text provided in FinalStepAsync or the default if it is the first time.
-            var messageText = stepContext.Options?.ToString() ?? "What can I help you with today?\n\"";
+            var messageText = stepContext.Options?.ToString() ?? "What can I help you with today?\n";
             var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
         }
@@ -64,7 +64,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             if (!_luisRecognizer.IsConfigured)
             {
                 // LUIS is not configured, we just run the BookingDialog path with an empty BookingDetailsInstance.
-                return await stepContext.BeginDialogAsync(nameof(BookingDialog), new LuisIncidentDetails(), cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(LuisDialog), new LuisIncidentDetails(), cancellationToken);
             }
 
             // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
@@ -83,7 +83,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     };
 
                     // Run the BookingDialog giving it whatever details we have from the LUIS call, it will fill out the remainder.
-                    return await stepContext.BeginDialogAsync(nameof(BookingDialog), luisIncidentDetails, cancellationToken);
+                    return await stepContext.BeginDialogAsync(nameof(LuisDialog), luisIncidentDetails, cancellationToken);
 
                 case Incident.Intent.None:
                     // We haven't implemented the GetWeatherDialog so we just display a TODO message.

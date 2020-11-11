@@ -40,7 +40,7 @@ namespace CoreBotSample
             services.AddSingleton<LuisBookingRecognizer>();
 
             //  Register the BookingDialog.
-            services.AddSingleton<BookingDialog>();
+            services.AddSingleton<LuisDialog>();
 
             //  The MainDialog that will be run by the bot.
             services.AddSingleton<MainDialog>();
